@@ -16,7 +16,7 @@ band_values = NDVI_data['Band Value'].values
 n_clusters = 4  # Modify this parameter to define the number of classes
 
 # Apply KMeans clustering to divide Band Value into n_clusters
-kmeans = KMeans(n_clusters=n_clusters, random_state=0)
+kmeans = KMeans(n_clusters=n_clusters, init='k-means++', random_state=0)
 NDVI_data['Cluster'] = kmeans.fit_predict(band_values.reshape(-1, 1))
 
 # Get and sort cluster centers to determine thresholds
